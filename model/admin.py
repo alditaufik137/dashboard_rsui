@@ -7,7 +7,4 @@ class Admin(db.Model):
     alamat = db.Column(db.String(100), nullable=False)
     
     def __repr__(self):
-        return '<admin {}>'.format(self.name)
-    
-    
-    
+        return '<Admin {}>' .format(self.nama)
