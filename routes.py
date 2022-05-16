@@ -1,12 +1,12 @@
 from app import app
 from app.controller import AdminController
 from app.controller import UploadCSVController
+
+
 # from app.model2.controller import TB_Controller
 # from app.model2.controller import KK_Controller
 
-#upload folder
-UPLOAD_FOLDER = 'storage/'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 @app.route('/')
 def index():
@@ -43,9 +43,6 @@ def upload_csv_utangp3lain():
 @app.route('/admin/upload/utang-int-ap', methods=['post'])
 def upload_csv_utang_int_ap():
     return UploadCSVController.utang_int_ap()
-
-
-
 
 
 # @app.route('/tb', methods=['GET'])
