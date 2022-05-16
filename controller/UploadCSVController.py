@@ -3,9 +3,21 @@ import os
 from os.path import join, dirname, realpath
 import pandas as pd
 
+import mysql.connector
+
 #upload folder
 UPLOAD_FOLDER = 'storage/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    passwd="",
+    database="db_pembayaran"
+)
+
+cursor = db.cursor()
 
 
 def accrue_pendapatan():
@@ -52,7 +64,7 @@ def parse_csv(file_path,type):
           print('type not found')
         #insert data
         val = (row['Bulan Tahun'], row['coa'], row['name'], row['balance'])
-        db.execute(sql, val)
+        cursor.execute(sql, val)
         db.commit()
 
 
