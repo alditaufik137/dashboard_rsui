@@ -12,6 +12,10 @@ from app.controller import UploadCSVController
 def index():
     return 'Hello Flask App'
 
+@app.route('/test')
+def index():
+    return 'Hello Flask App'
+
 @app.route('/admin', methods=['GET'])
 def admin():
     return AdminController.index()
