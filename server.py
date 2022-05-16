@@ -1,8 +1,5 @@
-from app import app
-
-from app import app
-from app.controller import AdminController
-from app.controller import UploadCSVController
+from controller import AdminController
+from controller import UploadCSVController
 
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 app = Flask(__name__)
