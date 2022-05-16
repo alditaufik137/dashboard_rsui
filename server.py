@@ -3,12 +3,15 @@ from app import app
 from app import app
 from app.controller import AdminController
 from app.controller import UploadCSVController
-
+app = Flask(__name__)
 
 # from app.model2.controller import TB_Controller
 # from app.model2.controller import KK_Controller
 
 
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 @app.route('/')
 def index():
@@ -50,6 +53,4 @@ def upload_csv_utangp3lain():
 def upload_csv_utang_int_ap():
     return UploadCSVController.utang_int_ap()
 
-    
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+
