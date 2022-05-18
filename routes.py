@@ -63,4 +63,3 @@ def upload_csv_utang_int_ap():
 # @app.route('/admin/<id>', methods=['GET'])
 # def adminDetail(id):
 #     return AdminController.detail(id)
-

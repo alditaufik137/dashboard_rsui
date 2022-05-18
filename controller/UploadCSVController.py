@@ -64,7 +64,5 @@ def parse_csv(file_path,type):
           print('type not found')
         #insert data
         val = (row['Bulan Tahun'], row['coa'], row['name'], row['balance'])
-        cursor.execute(sql, val)
+        db.execute(sql, val)
         db.commit()
-
-
