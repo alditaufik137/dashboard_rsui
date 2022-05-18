@@ -20,6 +20,7 @@ def index():
 
 @app.route('/test', methods=['GET'])
 def index():
+    print("test")
     return 'Hello Flask App'
 
 # @app.route('/admin', methods=['GET'])
