@@ -1,4 +1,4 @@
-from controller import AdminController
+# from controller import AdminController
 from controller import UploadCSVController
 
 from flask import Flask, request, jsonify, render_template, redirect, url_for
@@ -20,9 +20,9 @@ def index():
 def index():
     return 'Hello Flask App'
 
-@app.route('/admin', methods=['GET'])
-def admin():
-    return AdminController.index()
+# @app.route('/admin', methods=['GET'])
+# def admin():
+#     return AdminController.index()
 
 @app.route('/admin/upload/accrue-pendapatan', methods=['post'])
 def upload_csv():
