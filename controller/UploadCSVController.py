@@ -11,7 +11,7 @@ db = mysql.connector.connect(
     host="localhost",
     user="root",
     passwd="",
-    database="db_pembayaran"
+    database="rsui"
 )
 
 cursor = db.cursor()
