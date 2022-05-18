@@ -17,16 +17,16 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # def index():
 #     return 'Hello Flask App'
 
-@app.route('/test', methods=['GET'])
-def index():
-    print("test")
-    return 'Hello Flask App'
+# @app.route('/test', methods=['GET'])
+# def index():
+#     print("test")
+#     return 'Hello Flask App'
 
 # @app.route('/admin', methods=['GET'])
 # def admin():
 #     return AdminController.index()
 
-@app.route('/admin/upload/accrue-pendapatan', methods=['post'])
+@app.route('/admin/upload/accrue-pendapatan', methods=['POST'])
 def upload_csv():
     try:
         #get the file
