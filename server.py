@@ -11,12 +11,11 @@ app = Flask(__name__)
 UPLOAD_FOLDER = 'storage/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-if __name__ == '__main__':
-    app.run(debug=True)
 
-@app.route('/')
-def index():
-    return 'Hello Flask App'
+
+# @app.route('/')
+# def index():
+#     return 'Hello Flask App'
 
 @app.route('/test', methods=['GET'])
 def index():
@@ -68,3 +67,5 @@ def upload_csv_utang_int_ap():
     return UploadCSVController.utang_int_ap()
 
 
+if __name__ == '__main__':
+    app.run(debug=True)
