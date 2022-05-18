@@ -1,13 +1,10 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for
-import os
-from os.path import join, dirname, realpath
+
 import pandas as pd
 
 import mysql.connector
 
-#upload folder
-UPLOAD_FOLDER = 'storage/'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 
 db = mysql.connector.connect(
@@ -20,20 +17,8 @@ db = mysql.connector.connect(
 cursor = db.cursor()
 
 
-def accrue_pendapatan():
-    try:
-        #get the file
-        file = request.files['file']
-        type = request.form['type']
-        #save the file
-        if file.filename != '':
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-            file.save(file_path)
-            parse_csv(file_path, type)
-
-        return jsonify({'filename': file.filename})
-    except Exception as e:
-        return jsonify({'error': str(e)})
+# def accrue_pendapatan():
+    
 
 
 def parse_csv(file_path,type):

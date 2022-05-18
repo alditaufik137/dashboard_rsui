@@ -2,12 +2,14 @@
 from controller import UploadCSVController
 
 from flask import Flask, request, jsonify, render_template, redirect, url_for
+import os
+from os.path import join, dirname, realpath
+
 app = Flask(__name__)
 
-# from app.model2.controller import TB_Controller
-# from app.model2.controller import KK_Controller
-
-
+#upload folder
+UPLOAD_FOLDER = 'storage/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 if __name__ == '__main__':
     app.run(debug=True)
@@ -26,7 +28,19 @@ def index():
 
 @app.route('/admin/upload/accrue-pendapatan', methods=['post'])
 def upload_csv():
-    return UploadCSVController.accrue_pendapatan()
+    try:
+        #get the file
+        file = request.files['file']
+        type = request.form['type']
+        #save the file
+        if file.filename != '':
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+            file.save(file_path)
+            UploadCSVController.parse_csv(file_path, type)
+
+        return jsonify({'filename': file.filename})
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 @app.route('/admin/upload/piutang-ar-billed', methods=['post'])
 def upload_csv_piutang_ar_billed():
