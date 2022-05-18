@@ -18,7 +18,7 @@ if __name__ == '__main__':
 def index():
     return 'Hello Flask App'
 
-@app.route('/test')
+@app.route('/test', methods=['GET'])
 def index():
     return 'Hello Flask App'
 
