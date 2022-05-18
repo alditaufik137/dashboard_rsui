@@ -1,4 +1,4 @@
-from app import app
+# from app import app
 from app.controller import AdminController
 from app.controller import UploadCSVController
 
