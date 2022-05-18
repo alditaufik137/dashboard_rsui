@@ -1,6 +1,6 @@
 # from controller import AdminController
 from controller.UploadCSVController import parse_csv
-
+from controller.DashboardController import accrue_pendapatan_dashboard
 from flask import Flask, request, jsonify, render_template, redirect, url_for
 import os
 from os.path import join, dirname, realpath
@@ -26,7 +26,7 @@ def index():
 #     return AdminController.index()
 
 @app.route('/admin/upload', methods=['POST'])
-def accure():
+def accrue():
     file = request.files['file']
     tipecsv = request.form['tipe']
     # return tipecsv
@@ -38,6 +38,12 @@ def accure():
     return jsonify({'filename': file.filename})
     # except Exception as e:
     #     return jsonify({'error': str(e)})
+
+@app.route('/admin/dashboard/accrue_pendapatan',methods=['GET'])
+def dashboard_accrue_pendapatan():
+    return accrue_pendapatan_dashboard()
+
+
 
 @app.route('/admin/upload/piutang-ar-billed', methods=['post'])
 def upload_csv_piutang_ar_billed():

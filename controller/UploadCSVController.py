@@ -35,6 +35,8 @@ def parse_csv(file_path,tipe):
         cursor.execute(sql, val)
         db.commit()
 
+
+
         # elif tipe == 'piutang_ar_billed':
         #   sql = "INSERT INTO piutang_ar_billed (bulan_date, coa, name, balance) VALUES (%s, %s, %s, %s)"
         # elif tipe == 'piutang_ar_outstanding':
